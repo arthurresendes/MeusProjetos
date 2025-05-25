@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    position: relative;
+    background-image: url(imagens/Jesus-morreu-na-cruz.jpg);
+    width: 100%;
+    height: 700px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    display: flex;
+    /* torna o header flexível */
+    flex-direction: column;
+    /* conteúdo em coluna (de cima para baixo) */
+    justify-content: center;
+    /* envia o conteúdo (nav) para o final do header */
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 2, 2, 0.649);
+    /* Ajuste a opacidade aqui */
+    z-index: 1;
+}
+
+/* Para garantir que o conteúdo dentro do header fique acima da camada escura */
+header * {
+    position: relative;
+    z-index: 2;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 80px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px black;
+    margin: 10px;
+    z-index: 2px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: brown;
+    text-decoration: underline;
+    transition-duration: .3s;
+}
+
+.titulo {
+    font-size: 60px;
+    color: black;
+    font-weight: bolder;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 2px 2px 3px black;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+span {
+    color: #AB3030;
+}
+
+.conteudo1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.conteudo1 img {
+    width: 30%;
+    height: 30%;
+
+    border: 2px solid transparent;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #ab303054;
+}
+
+.conteudo1 img:hover {
+    width: 32%;
+    height: 32%;
+    transition-duration: .5s;
+}
+
+.conteudo1 .p {
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+.conteudo2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.antigoTestamento,
+.novoTestamento {
+    border: 2px solid rgba(50, 50, 50, 0.468);
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #ab303065;
+    padding: 10px;
+    margin: 10px;
+}
+
+.titulo2 {
+    font-size: 50px;
+    text-align: center;
+    font-family: monospace;
+    text-shadow: 1px 1px 2px black;
+    padding-bottom: 15px;
+    padding-top: 5px;
+}
+
+.conteudo2 p {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.img2 img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    max-width: 300px;
+    /* Define um limite de largura para todas */
+    border: 2px solid rgba(0, 0, 0, 0.115);
+    /* Borda visível */
+    border-radius: 10px;
+    /* Cantos arredondados */
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    /* Sombra */
+    display: block;
+    margin: 0 auto;
+    /* Centraliza a imagem */
+}
+
+
+.button {
+    display: block;
+    /* Faz o botão se comportar como um bloco */
+    margin: 20px auto;
+    /* Centraliza horizontalmente */
+    border: 2px solid rgba(0, 0, 0, 0.597);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.51);
+    padding: 10px;
+    text-align: center;
+    width: 60%;
+    background-color: #ab3030c6;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #AB3030;
+    text-decoration: underline;
+    color: black;
+    transition-duration: .3s;
+}
+
+.button a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+    text-shadow: 2px 2px 3px black;
+}
