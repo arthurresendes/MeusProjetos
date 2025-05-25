@@ -76,7 +76,7 @@ nav ul li a:hover {
     font-weight: bolder;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-shadow: 2px 2px 3px black;
-    padding: 10px;
+    padding: 25px;
     margin: 10px;
     text-align: center;
 }
@@ -191,3 +191,46 @@ span {
     font-weight: bolder;
     text-shadow: 2px 2px 3px black;
 }
+.display{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.img3 {
+    position: relative;
+    width: 30%;
+    /* ou o tamanho que preferir */
+    height: 30%;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 15px;
+}
+
+.imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    /* fundo preto com transparência */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.texto-overlay {
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.conteudo3{
+    padding-left: 20px;
+    margin: 10px;
+}
+
