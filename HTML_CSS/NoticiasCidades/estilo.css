@@ -71,3 +71,13 @@ body.fotos #navegacao #fotos {
     background: #de003e;
     cursor: text;
 }
+
+
+#conteudo{
+    background: #f5f5f5;
+    margin-top: 60px;
+}
+
+#primario{}
+#secundario{}
+#lateral{}
