@@ -3,8 +3,6 @@
 #include <string.h>
 #include <stdio.h>
 
-
-
 // Permite apenas números
 int apenasNumeros(char *str)
 {
@@ -32,9 +30,11 @@ int apenasLetras(char *str)
 }
 
 // Função para limpar buffer
-void limpaBuffer() {
+void limpaBuffer()
+{
     int c;
-    while ((c = getchar()) != '\n' && c != EOF);
+    while ((c = getchar()) != '\n' && c != EOF)
+        ;
 }
 
 // Limpa tela (cls para Windows, clear para Linux/Mac)
@@ -49,7 +49,7 @@ void limparTela()
 
 int main()
 {
-    int menu, pedido, escolhaPizza, escolhaBebida, quantidadePizza, querBebida, querDoce, querSalgada, pagamento, quantidadeBebida, quantidadeDoce, escolhaDoce, cardapio, menuCardapio;
+    int menu, pedido, escolhaPizza, escolhaBebida, quantidadePizza, querBebida, querDoce, querSalgada, pagamento, quantidadeBebida, quantidadeDoce, escolhaDoce, cardapio, menuCardapio, algoMais;
     char email[50];
     char complemento[50];
     char nomePizza[50];
@@ -63,6 +63,8 @@ int main()
     char querSalgadastr[3];
     char escolhaPizzastr[6];
     char cep[9], cpf[12];
+    char quantidadePizzaStr[10];
+    char algoMaisStr[10];
 
     while (1)
     {
@@ -108,7 +110,6 @@ int main()
                 fgets(cep, sizeof(cep), stdin);
                 cep[strcspn(cep, "\n")] = '\0';
             } while (strlen(cep) != 8 || !apenasNumeros(cep));
-
 
             // Complemento
             do
@@ -183,8 +184,15 @@ int main()
                     break;
                 }
 
-                printf("Quantas pizzas voce deseja? ");
-                scanf("%d", &quantidadePizza);
+                do
+                {
+                    printf("Quantas pizzas voce deseja? ");
+                    fgets(quantidadePizzaStr, sizeof(quantidadePizzaStr), stdin);
+                    quantidadePizzaStr[strcspn(quantidadePizzaStr, "\n")] = '\0'; // remove o '\n'
+
+                } while (strlen(quantidadePizzaStr) == 0 || !apenasNumeros(quantidadePizzaStr));
+
+                quantidadePizza = atoi(quantidadePizzaStr); 
 
                 precoPizza = 50.0 * quantidadePizza;
             }
@@ -195,7 +203,14 @@ int main()
                 quantidadePizza = 0;
             }
 
-            // Bebida
+            do
+            {
+                printf("Deseja mais alguma pizza ? (1-Sim 2-Não) ");
+                fgets(algoMaisStr, sizeof(algoMaisStr), stdin);
+                algoMaisStr[strcspn(algoMaisStr, "\n")] = '\0'; // remove o '\n'
+                algoMais = atoi(algoMaisStr);
+            } while (algoMais > 2 || algoMais < 1 || strlen(algoMaisStr) == 0 || !apenasNumeros(algoMaisStr));
+
             printf("Deseja bebida? (1-Sim / 2-Nao): ");
             scanf("%d", &querBebida);
             getchar(); // limpa buffer
