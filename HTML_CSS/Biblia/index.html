@@ -11,7 +11,7 @@
 <body>
     <header>
         <nav>
-            <ul>
+            <ul class="menu">
                 <li><a href="#biblia">Biblia</a></li>
                 <li><a href="#jesus">Jesus</a></li>
                 <li><a href="#musica">Músicas</a></li>
@@ -158,5 +158,43 @@
         </section>
     </main>
 </body>
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+    window.revelar = ScrollReveal({ reset: false });
+
+    revelar.reveal('.menu', {
+        duration: 1800,
+        distance: '90px',
+        origin: 'top',
+        delay: 500
+    });
+
+    revelar.reveal('.titulo', {
+        duration: 1800,
+        distance: '90px'
+    });
+
+    revelar.reveal('.conteudo1', {
+        duration: 1500,
+        distance: '90px',
+        origin: 'left',
+        delay: 500
+    });
+
+    revelar.reveal('.conteudo2', {
+        duration: 1800,
+        distance: '90px',
+        origin: 'left',
+        delay: 500
+    });
+    revelar.reveal('#musica', {
+        duration: 1800,
+        distance: '90px',
+        origin: 'bottom',
+        delay: 500
+    });
+
+</script>
 
 </html>
