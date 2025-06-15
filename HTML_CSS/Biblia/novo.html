@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Novo testamento</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Biblia</a></li>
+                <li><a href="index.html">Jesus</a></li>
+                <li><a href="index.html">Músicas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="conteudo1">
+        <div class="titulo">
+            <h1>Novo <span> testamento</span></h1>
+        </div>
+
+        <div class="conteudo1">
+            <img src="imagens/imgConteudoNovo.jpg" alt="">
+            <div class="p">
+                <p>O Novo Testamento é a segunda parte da Bíblia cristã e concentra-se na figura de Jesus Cristo,
+                    considerado o Filho de Deus e o Messias prometido no Antigo Testamento. Ele é composto por 27
+                    livros, escritos em sua maioria em grego, que abordam a vida de Jesus, o surgimento da Igreja cristã
+                    e os ensinamentos para a nova aliança entre Deus e a humanidade.</p>
+                <br>
+                <p>Os quatro Evangelhos (Mateus, Marcos, Lucas e João) são o coração do Novo Testamento. Eles relatam a
+                    vida, os ensinamentos, os milagres, a morte e a ressurreição de Jesus. Cada evangelho tem um estilo
+                    e um público diferente, mas todos apresentam a mensagem central de amor, perdão e salvação por meio
+                    de Cristo.</p>
+                <br>
+                <p>O livro dos Atos dos Apóstolos dá continuidade aos Evangelhos e narra a expansão da fé cristã após a
+                    ascensão de Jesus. Ele descreve o papel dos apóstolos, especialmente Pedro e Paulo, na pregação do
+                    evangelho e na fundação de comunidades cristãs em diferentes regiões do Império Romano, enfrentando
+                    perseguições e desafios.</p>
+                <br>
+                <p>As Epístolas (ou cartas) são textos escritos por apóstolos como Paulo, Pedro, Tiago e João, dirigidos
+                    às primeiras comunidades cristãs. Elas oferecem orientações práticas sobre fé, ética, convivência e
+                    resistência às dificuldades. Além disso, reforçam a ideia de que a salvação é um presente de Deus,
+                    acessível a todos pela fé em Jesus.</p>
+                <br>
+                <p>Um tema essencial do Novo Testamento é a nova aliança, na qual Jesus é o mediador entre Deus e os
+                    seres humanos. Ao morrer na cruz, Ele oferece perdão pelos pecados e abre caminho para uma vida
+                    eterna. Essa aliança não depende mais do cumprimento rígido da lei, mas da fé e do amor a Deus e ao
+                    próximo.</p>
+                <br>
+                <p>O Apocalipse de João, último livro do Novo Testamento, é uma obra profética e simbólica que fala
+                    sobre o fim dos tempos, o juízo final e a vitória definitiva de Cristo sobre o mal. Apesar de seu
+                    tom muitas vezes enigmático, o livro transmite uma mensagem de esperança e reforça que o bem
+                    triunfará e que Deus renovará todas as coisas.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="livros">
+        <h2 class="h2livros">Livros <span>Novo</span> Testamento</h2>
+        <br>
+        <label for="livrosNT">Filtre um livro do Novo Testamento:</label>
+        <select id="livrosNT" name="livrosNT"  onchange="window.location.href = this.value">
+            <option value="">-- Escolha um livro --</option>
+            <option value="#mateus">Mateus</option>
+            <option value="Marcos">Marcos</option>
+            <option value="Lucas">Lucas</option>
+            <option value="Joao">João</option>
+            <option value="Atos">Atos dos Apóstolos</option>
+            <option value="Romanos">Romanos</option>
+            <option value="1Corintios">1 Coríntios</option>
+            <option value="2Corintios">2 Coríntios</option>
+            <option value="Galatas">Gálatas</option>
+            <option value="Efesios">Efésios</option>
+            <option value="Filipenses">Filipenses</option>
+            <option value="Colossenses">Colossenses</option>
+            <option value="1Tessalonicenses">1 Tessalonicenses</option>
+            <option value="2Tessalonicenses">2 Tessalonicenses</option>
+            <option value="1Timoteo">1 Timóteo</option>
+            <option value="2Timoteo">2 Timóteo</option>
+            <option value="Tito">Tito</option>
+            <option value="Filemom">Filemom</option>
+            <option value="Hebreus">Hebreus</option>
+            <option value="Tiago">Tiago</option>
+            <option value="1Pedro">1 Pedro</option>
+            <option value="2Pedro">2 Pedro</option>
+            <option value="1Joao">1 João</option>
+            <option value="2Joao">2 João</option>
+            <option value="3Joao">3 João</option>
+            <option value="Judas">Judas</option>
+            <option value="Apocalipse">Apocalipse</option>
+        </select>
+    </section>
+
+
+    <section id="mateus">
+        <div class="nomeAutores">
+            <h2><span>Mateus</span></h2>
+        </div>
+
+        <div class="conteudo1">
+            <img src="imagens/sao-mateus.jpeg" alt="São Mateus">
+            <div class="p">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sequi ratione iusto aperiam, voluptatibus temporibus corrupti esse eos quae hic? Aut quisquam repellat assumenda modi. Porro quidem maiores repellendus aliquam?</p>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam expedita accusantium esse neque, sint temporibus alias ratione veniam harum maiores. Laborum earum ad necessitatibus unde deserunt libero explicabo, voluptatem vitae.</p>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+<script>
+    function redirecionarLivro(selectElement) {
+        const pagina = selectElement.value;
+        if (pagina) {
+            window.location.href = pagina;
+        }
+    }
+</script>
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+    window.revelar = ScrollReveal({ reset: false });
+
+    revelar.reveal('.menu', {
+        duration: 1800,
+        distance: '90px',
+        origin: 'top',
+        delay: 500
+    });
+
+    revelar.reveal('.titulo', {
+        duration: 1800,
+        distance: '90px'
+    });
+
+    revelar.reveal('.livros', {
+        duration: 1800,
+        distance: '90px'
+    });
+    revelar.reveal('#mateus', {
+        duration: 1800,
+        distance: '90px',
+        delay: 500
+    });
+
+    revelar.reveal('.conteudo1', {
+        duration: 1800,
+        distance: '90px',
+        delay: 200
+    });
+
+
+</script>
+
+</html>

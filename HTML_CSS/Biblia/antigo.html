@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Antigo testamento</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Biblia</a></li>
+                <li><a href="index.html">Jesus</a></li>
+                <li><a href="index.html">Músicas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="conteudo1">
+        <div class="titulo">
+            <h1>Antigo <span> testamento</span></h1>
+        </div>
+
+        <div class="conteudo1">
+            <img src="imagens/imgConteudoAntigo.jpg" alt="">
+            <div class="p">
+                <p>O Antigo Testamento é a primeira grande parte da Bíblia e reúne um conjunto de livros sagrados
+                    escritos antes do nascimento de Jesus Cristo. Ele é dividido em várias seções: Pentateuco, livros
+                    históricos, poéticos e proféticos. Esses textos foram escritos por diversos autores ao longo de
+                    séculos e contêm os fundamentos da fé judaica, que também influenciam o cristianismo.</p>
+                <br>
+                <p>O Pentateuco, composto pelos cinco primeiros livros (Gênesis, Êxodo, Levítico, Números e
+                    Deuteronômio), narra desde a criação do mundo até a formação do povo de Israel como nação. Nele,
+                    encontramos histórias como a de Adão e Eva, o dilúvio de Noé, o chamado de Abraão e a libertação dos
+                    hebreus do Egito sob a liderança de Moisés.</p>
+                <br>
+                <p>Uma das principais ideias do Antigo Testamento é a aliança entre Deus e o povo de Israel. Essa
+                    aliança é marcada por promessas e obrigações. Deus promete bênçãos e proteção, enquanto o povo deve
+                    obedecer às leis e manter a fidelidade. Os Dez Mandamentos são um exemplo claro dessa relação,
+                    funcionando como base moral e espiritual para o povo.</p>
+                <br>
+                <p>Os livros históricos, como Josué, Juízes, Reis e Crônicas, relatam a conquista da Terra Prometida, o
+                    governo de líderes como Davi e Salomão, e as dificuldades enfrentadas pelo povo, incluindo exílios e
+                    invasões. Esses textos mostram como a obediência ou desobediência à vontade de Deus traz
+                    consequências diretas à nação.</p>
+                <br>
+                <p>A literatura poética e sapiencial, representada por livros como Salmos, Provérbios e Jó, trata de
+                    temas como sabedoria, justiça, sofrimento e fé. Os Salmos, por exemplo, são cânticos e orações que
+                    expressam louvor, arrependimento, confiança e esperança. Esses escritos oferecem reflexões profundas
+                    sobre a vida humana e o relacionamento com Deus.</p>
+                <br>
+                <p>Os profetas são personagens centrais do Antigo Testamento. Profetas como Isaías, Jeremias e Ezequiel
+                    anunciavam mensagens divinas, muitas vezes criticando injustiças sociais e chamando o povo ao
+                    arrependimento. Além disso, muitos profetas previam a vinda de um Salvador — o Messias — que seria o
+                    redentor da humanidade, preparando o caminho para o Novo Testamento.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="livros">
+        <h2 class="h2livros">Livros <span>Antigo</span> Testamento</h2>
+        <br>
+        <label for="livros">Filtre um livro do Antigo Testamento:</label>
+        <select id="livros" name="livros" onchange="window.location.href = this.value">
+            <option value="">-- Escolha um livro --</option>
+            <option value="Genesis">Gênesis</option>
+            <option value="Exodo">Êxodo</option>
+            <option value="Levitico">Levítico</option>
+            <option value="Numeros">Números</option>
+            <option value="Deuteronomio">Deuteronômio</option>
+
+            <option value="Josue">Josué</option>
+            <option value="Juizes">Juízes</option>
+            <option value="Rute">Rute</option>
+            <option value="1Samuel">1 Samuel</option>
+            <option value="2Samuel">2 Samuel</option>
+            <option value="1Reis">1 Reis</option>
+            <option value="2Reis">2 Reis</option>
+            <option value="1Cronicas">1 Crônicas</option>
+            <option value="2Cronicas">2 Crônicas</option>
+            <option value="Esdras">Esdras</option>
+            <option value="Neemias">Neemias</option>
+            <option value="Ester">Ester</option>
+
+            <option value="Jo">Jó</option>
+            <option value="Salmos">Salmos</option>
+            <option value="Proverbios">Provérbios</option>
+            <option value="Eclesiastes">Eclesiastes</option>
+            <option value="Cantares">Cânticos</option>
+
+            <option value="Isaias">Isaías</option>
+            <option value="Jeremias">Jeremias</option>
+            <option value="Lamentacoes">Lamentações</option>
+            <option value="Ezequiel">Ezequiel</option>
+            <option value="Daniel">Daniel</option>
+
+            <option value="Oseias">Oséias</option>
+            <option value="Joel">Joel</option>
+            <option value="Amos">Amós</option>
+            <option value="Obadias">Obadias</option>
+            <option value="Jonas">Jonas</option>
+            <option value="Miqueias">Miqueias</option>
+            <option value="Naum">Naum</option>
+            <option value="Habacuque">Habacuque</option>
+            <option value="Sofonias">Sofonias</option>
+            <option value="Ageu">Ageu</option>
+            <option value="Zacarias">Zacarias</option>
+            <option value="Malaquias">Malaquias</option>
+        </select>
+    </section>
+
+</body>
+
+<script>
+    function redirecionarLivro(selectElement) {
+        const pagina = selectElement.value;
+        if (pagina) {
+            window.location.href = pagina;
+        }
+    }
+</script>
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+    window.revelar = ScrollReveal({ reset: false });
+
+    revelar.reveal('.menu', {
+        duration: 1800,
+        distance: '90px',
+        origin: 'top',
+        delay: 500
+    });
+
+    revelar.reveal('.titulo', {
+        duration: 1800,
+        distance: '90px'
+    });
+
+    revelar.reveal('.livros', {
+        duration: 1800,
+        distance: '90px'
+    });
+    revelar.reveal('.conteudo1', {
+        duration: 1800,
+        distance: '90px',
+        delay: 200
+    });
+
+</script>
+</html>
