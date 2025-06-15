@@ -49,19 +49,22 @@ typedef struct {
     char senha[50];
 } Usuario;
 
+#define MAX_ITENS 100
+
 int main() {
     int menu;
     Usuario usuario = {"", ""};
     char menustr[10];
 
-    char nomePizza[2][50] = {"", ""}, nomeBebida[2][50] = {"", ""}, nomeDoce[2][50] = {"", ""};
-    int escolhaPizza[2] = {0, 0}, quantidadePizza[2] = {0, 0};
-    int escolhaBebida[2] = {0, 0}, quantidadeBebida[2] = {0, 0};
-    int escolhaDoce[2] = {0, 0}, quantidadeDoce[2] = {0, 0};
-    float precoPizza[2] = {0.0, 0.0}, precoBebida[2] = {0.0, 0.0}, precoDoce[2] = {0.0, 0.0};
+    // Agora até MAX_ITENS de cada tipo
+    char nomePizza[MAX_ITENS][50], nomeBebida[MAX_ITENS][50], nomeDoce[MAX_ITENS][50];
+    int escolhaPizza[MAX_ITENS], quantidadePizza[MAX_ITENS];
+    int escolhaBebida[MAX_ITENS], quantidadeBebida[MAX_ITENS];
+    int escolhaDoce[MAX_ITENS], quantidadeDoce[MAX_ITENS];
+    float precoPizza[MAX_ITENS], precoBebida[MAX_ITENS], precoDoce[MAX_ITENS];
     char email[50], senha[50], confirma[50];
     char complemento[50], cep[10], cpf[15];
-    char quantidadePizzaStr[10], quantidadeBebidaStr[10], quantidadeDoceStr[10];
+    char quantidadeStr[16];
     int querSalgada = 2, querBebida = 2, querDoce = 2, pagamento = 0;
     char nomePagamento[50];
     float total = 0.0;
@@ -160,17 +163,16 @@ int main() {
             }
             printf("Bom ter voce de volta ao PizzaControl, %s!\n", usuario.email);
 
-            // Escolha de pizzas salgadas (até 2 diferentes)
-            do {
-                printf("Deseja Pizza salgada? (1-Sim / 2-Nao): ");
-                fgets(menustr, sizeof(menustr), stdin);
-                menustr[strcspn(menustr, "\n")] = '\0';
-                querSalgada = atoi(menustr);
-            } while (querSalgada < 1 || querSalgada > 2 || strlen(menustr) == 0 || !apenasNumeros(menustr));
-
+            // Escolha de pizzas salgadas (quantas quiser)
             n_pizza = 0;
-            if (querSalgada == 1) {
-                for (i = 0; i < 2; i++) {
+            do {
+                do {
+                    printf("Deseja adicionar uma pizza salgada? (1-Sim / 2-Nao): ");
+                    fgets(menustr, sizeof(menustr), stdin);
+                    menustr[strcspn(menustr, "\n")] = '\0';
+                } while (!apenasNumeros(menustr) || (atoi(menustr) != 1 && atoi(menustr) != 2));
+                querSalgada = atoi(menustr);
+                if (querSalgada == 1) {
                     printf("---------------------------- \n");
                     printf("| 1-Frango catupiry--50 R$ | \n");
                     printf("| 2-Calabresa--50 R$       | \n");
@@ -178,130 +180,107 @@ int main() {
                     printf("| 4-Quatro queijos--50 R$  | \n");
                     printf("| 5-Portuguesa--50 R$      | \n");
                     printf("---------------------------- \n");
-                    printf("Escolha sua pizza salgada %d (0 para parar): ", i + 1);
-                    fgets(menustr, sizeof(menustr), stdin);
-                    menustr[strcspn(menustr, "\n")] = '\0';
-                    escolhaPizza[i] = atoi(menustr);
-                    if (escolhaPizza[i] == 0) break;
-                    if (escolhaPizza[i] < 1 || escolhaPizza[i] > 5) {
-                        printf("Opção inválida.\n");
-                        i--;
-                        continue;
-                    }
-                    switch (escolhaPizza[i]) {
-                        case 1: strcpy(nomePizza[i], "Frango com catupiry"); break;
-                        case 2: strcpy(nomePizza[i], "Calabresa"); break;
-                        case 3: strcpy(nomePizza[i], "Mussarela"); break;
-                        case 4: strcpy(nomePizza[i], "Quatro queijos"); break;
-                        case 5: strcpy(nomePizza[i], "Portuguesa"); break;
+                    do {
+                        printf("Escolha sua pizza salgada: ");
+                        fgets(menustr, sizeof(menustr), stdin);
+                        menustr[strcspn(menustr, "\n")] = '\0';
+                        escolhaPizza[n_pizza] = atoi(menustr);
+                    } while (escolhaPizza[n_pizza] < 1 || escolhaPizza[n_pizza] > 5 || !apenasNumeros(menustr));
+                    switch (escolhaPizza[n_pizza]) {
+                        case 1: strcpy(nomePizza[n_pizza], "Frango com catupiry"); break;
+                        case 2: strcpy(nomePizza[n_pizza], "Calabresa"); break;
+                        case 3: strcpy(nomePizza[n_pizza], "Mussarela"); break;
+                        case 4: strcpy(nomePizza[n_pizza], "Quatro queijos"); break;
+                        case 5: strcpy(nomePizza[n_pizza], "Portuguesa"); break;
                     }
                     do {
-                        printf("Quantas %s voce deseja? ", nomePizza[i]);
-                        fgets(quantidadePizzaStr, sizeof(quantidadePizzaStr), stdin);
-                        quantidadePizzaStr[strcspn(quantidadePizzaStr, "\n")] = '\0';
-                    } while (strlen(quantidadePizzaStr) == 0 || !apenasNumeros(quantidadePizzaStr));
-                    quantidadePizza[i] = atoi(quantidadePizzaStr);
-                    precoPizza[i] = 50.0 * quantidadePizza[i];
+                        printf("Quantas %s voce deseja? ", nomePizza[n_pizza]);
+                        fgets(quantidadeStr, sizeof(quantidadeStr), stdin);
+                        quantidadeStr[strcspn(quantidadeStr, "\n")] = '\0';
+                    } while (strlen(quantidadeStr) == 0 || !apenasNumeros(quantidadeStr));
+                    quantidadePizza[n_pizza] = atoi(quantidadeStr);
+                    precoPizza[n_pizza] = 50.0 * quantidadePizza[n_pizza];
                     n_pizza++;
                 }
-            } else {
-                quantidadePizza[0] = quantidadePizza[1] = 0;
-                precoPizza[0] = precoPizza[1] = 0.0;
-            }
+            } while (querSalgada == 1 && n_pizza < MAX_ITENS);
 
-            // Escolha de bebidas (até 2 diferentes)
-            do {
-                printf("Deseja bebida? (1-Sim / 2-Nao): ");
-                fgets(menustr, sizeof(menustr), stdin);
-                menustr[strcspn(menustr, "\n")] = '\0';
-                querBebida = atoi(menustr);
-            } while (querBebida < 1 || querBebida > 2 || strlen(menustr) == 0 || !apenasNumeros(menustr));
-
+            // Escolha de bebidas (quantas quiser)
             n_bebida = 0;
-            if (querBebida == 1) {
-                for (i = 0; i < 2; i++) {
+            do {
+                do {
+                    printf("Deseja adicionar uma bebida? (1-Sim / 2-Nao): ");
+                    fgets(menustr, sizeof(menustr), stdin);
+                    menustr[strcspn(menustr, "\n")] = '\0';
+                } while (!apenasNumeros(menustr) || (atoi(menustr) != 1 && atoi(menustr) != 2));
+                querBebida = atoi(menustr);
+                if (querBebida == 1) {
                     printf("----------------------------- \n");
                     printf("| 1-Coca-Cola--12 R$        | \n");
                     printf("| 2-Guarana--11 R$          | \n");
                     printf("| 3-Suco de laranja--10 R$  | \n");
                     printf("| 4-Agua--8 R$              | \n");
                     printf("----------------------------- \n");
-                    printf("Escolha sua bebida %d (0 para parar): ", i + 1);
-                    fgets(menustr, sizeof(menustr), stdin);
-                    menustr[strcspn(menustr, "\n")] = '\0';
-                    escolhaBebida[i] = atoi(menustr);
-                    if (escolhaBebida[i] == 0) break;
-                    if (escolhaBebida[i] < 1 || escolhaBebida[i] > 4) {
-                        printf("Opção inválida.\n");
-                        i--;
-                        continue;
-                    }
-                    switch (escolhaBebida[i]) {
-                        case 1: strcpy(nomeBebida[i], "Coca-Cola"); precoBebida[i] = 12.0; break;
-                        case 2: strcpy(nomeBebida[i], "Guarana"); precoBebida[i] = 11.0; break;
-                        case 3: strcpy(nomeBebida[i], "Suco de laranja"); precoBebida[i] = 10.0; break;
-                        case 4: strcpy(nomeBebida[i], "Agua"); precoBebida[i] = 8.0; break;
+                    do {
+                        printf("Escolha sua bebida: ");
+                        fgets(menustr, sizeof(menustr), stdin);
+                        menustr[strcspn(menustr, "\n")] = '\0';
+                        escolhaBebida[n_bebida] = atoi(menustr);
+                    } while (escolhaBebida[n_bebida] < 1 || escolhaBebida[n_bebida] > 4 || !apenasNumeros(menustr));
+                    switch (escolhaBebida[n_bebida]) {
+                        case 1: strcpy(nomeBebida[n_bebida], "Coca-Cola"); precoBebida[n_bebida] = 12.0; break;
+                        case 2: strcpy(nomeBebida[n_bebida], "Guarana"); precoBebida[n_bebida] = 11.0; break;
+                        case 3: strcpy(nomeBebida[n_bebida], "Suco de laranja"); precoBebida[n_bebida] = 10.0; break;
+                        case 4: strcpy(nomeBebida[n_bebida], "Agua"); precoBebida[n_bebida] = 8.0; break;
                     }
                     do {
-                        printf("Quantas %s voce deseja? ", nomeBebida[i]);
-                        fgets(quantidadeBebidaStr, sizeof(quantidadeBebidaStr), stdin);
-                        quantidadeBebidaStr[strcspn(quantidadeBebidaStr, "\n")] = '\0';
-                    } while (strlen(quantidadeBebidaStr) == 0 || !apenasNumeros(quantidadeBebidaStr));
-                    quantidadeBebida[i] = atoi(quantidadeBebidaStr);
-                    precoBebida[i] = precoBebida[i] * quantidadeBebida[i];
+                        printf("Quantas %s voce deseja? ", nomeBebida[n_bebida]);
+                        fgets(quantidadeStr, sizeof(quantidadeStr), stdin);
+                        quantidadeStr[strcspn(quantidadeStr, "\n")] = '\0';
+                    } while (strlen(quantidadeStr) == 0 || !apenasNumeros(quantidadeStr));
+                    quantidadeBebida[n_bebida] = atoi(quantidadeStr);
+                    precoBebida[n_bebida] = precoBebida[n_bebida] * quantidadeBebida[n_bebida];
                     n_bebida++;
                 }
-            } else {
-                quantidadeBebida[0] = quantidadeBebida[1] = 0;
-                precoBebida[0] = precoBebida[1] = 0.0;
-            }
+            } while (querBebida == 1 && n_bebida < MAX_ITENS);
 
-            // Escolha de doces (até 2 diferentes)
-            do {
-                printf("Deseja Pizza doce? (1-Sim / 2-Nao): ");
-                fgets(menustr, sizeof(menustr), stdin);
-                menustr[strcspn(menustr, "\n")] = '\0';
-                querDoce = atoi(menustr);
-            } while (querDoce < 1 || querDoce > 2 || strlen(menustr) == 0 || !apenasNumeros(menustr));
-
+            // Escolha de doces (quantas quiser)
             n_doce = 0;
-            if (querDoce == 1) {
-                for (i = 0; i < 2; i++) {
+            do {
+                do {
+                    printf("Deseja adicionar uma pizza doce? (1-Sim / 2-Nao): ");
+                    fgets(menustr, sizeof(menustr), stdin);
+                    menustr[strcspn(menustr, "\n")] = '\0';
+                } while (!apenasNumeros(menustr) || (atoi(menustr) != 1 && atoi(menustr) != 2));
+                querDoce = atoi(menustr);
+                if (querDoce == 1) {
                     printf("----------------------------- \n");
                     printf("| 1-Chocolate--50 R$        | \n");
                     printf("| 2-Prestigio--55 R$        |\n");
                     printf("| 3-RomeuJulieta--55 R$     | \n");
                     printf("| 4-Brigadeiro--50 R$       |\n");
                     printf("----------------------------- \n");
-                    printf("Escolha sua pizza doce %d (0 para parar): ", i + 1);
-                    fgets(menustr, sizeof(menustr), stdin);
-                    menustr[strcspn(menustr, "\n")] = '\0';
-                    escolhaDoce[i] = atoi(menustr);
-                    if (escolhaDoce[i] == 0) break;
-                    if (escolhaDoce[i] < 1 || escolhaDoce[i] > 4) {
-                        printf("Opção inválida.\n");
-                        i--;
-                        continue;
-                    }
-                    switch (escolhaDoce[i]) {
-                        case 1: strcpy(nomeDoce[i], "Chocolate"); precoDoce[i] = 50.0; break;
-                        case 2: strcpy(nomeDoce[i], "Prestigio"); precoDoce[i] = 55.0; break;
-                        case 3: strcpy(nomeDoce[i], "RomeuJulieta"); precoDoce[i] = 55.0; break;
-                        case 4: strcpy(nomeDoce[i], "Brigadeiro"); precoDoce[i] = 50.0; break;
+                    do {
+                        printf("Escolha sua pizza doce: ");
+                        fgets(menustr, sizeof(menustr), stdin);
+                        menustr[strcspn(menustr, "\n")] = '\0';
+                        escolhaDoce[n_doce] = atoi(menustr);
+                    } while (escolhaDoce[n_doce] < 1 || escolhaDoce[n_doce] > 4 || !apenasNumeros(menustr));
+                    switch (escolhaDoce[n_doce]) {
+                        case 1: strcpy(nomeDoce[n_doce], "Chocolate"); precoDoce[n_doce] = 50.0; break;
+                        case 2: strcpy(nomeDoce[n_doce], "Prestigio"); precoDoce[n_doce] = 55.0; break;
+                        case 3: strcpy(nomeDoce[n_doce], "RomeuJulieta"); precoDoce[n_doce] = 55.0; break;
+                        case 4: strcpy(nomeDoce[n_doce], "Brigadeiro"); precoDoce[n_doce] = 50.0; break;
                     }
                     do {
-                        printf("Quantas %s voce deseja? ", nomeDoce[i]);
-                        fgets(quantidadeDoceStr, sizeof(quantidadeDoceStr), stdin);
-                        quantidadeDoceStr[strcspn(quantidadeDoceStr, "\n")] = '\0';
-                    } while (strlen(quantidadeDoceStr) == 0 || !apenasNumeros(quantidadeDoceStr));
-                    quantidadeDoce[i] = atoi(quantidadeDoceStr);
-                    precoDoce[i] = precoDoce[i] * quantidadeDoce[i];
+                        printf("Quantas %s voce deseja? ", nomeDoce[n_doce]);
+                        fgets(quantidadeStr, sizeof(quantidadeStr), stdin);
+                        quantidadeStr[strcspn(quantidadeStr, "\n")] = '\0';
+                    } while (strlen(quantidadeStr) == 0 || !apenasNumeros(quantidadeStr));
+                    quantidadeDoce[n_doce] = atoi(quantidadeStr);
+                    precoDoce[n_doce] = precoDoce[n_doce] * quantidadeDoce[n_doce];
                     n_doce++;
                 }
-            } else {
-                quantidadeDoce[0] = quantidadeDoce[1] = 0;
-                precoDoce[0] = precoDoce[1] = 0.0;
-            }
+            } while (querDoce == 1 && n_doce < MAX_ITENS);
 
             if ((n_pizza == 0) && (n_bebida == 0) && (n_doce == 0)) {
                 printf("Nenhum pedido registrado.\n");
