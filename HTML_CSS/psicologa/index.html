@@ -175,27 +175,27 @@
                 <hr>
             </div>
             <div class="forms">
-                <!-- Alteração: Envio para email via FormSubmit -->
-                <form action="https://formsubmit.co/arthur.resende
-gomes02@gmail.com" method="POST">
-                    <input type="text" name="Nome" required placeholder="Nome:" class="input"><br>
-                    <input type="email" name="Email" required placeholder="E-mail:" class="input"><br>
-                    <input type="tel" name="Telefone" placeholder="Telefone (opcional):" class="input">
-                    <input list="opcoes" name="Assunto" class="input" placeholder="Escolha sua opção para eu te ajudar">
-                    <datalist id="opcoes">
-                        <option value="Ansiedade"></option>
-                        <option value="Depressão"></option>
-                        <option value="Estresse"></option>
-                        <option value="Problemas familiares"></option>
-                        <option value="Autoconhecimento"></option>
-                    </datalist><br>
-                    <textarea name="Mensagem" id="msg" placeholder="Sua mensagem:" class="textarea" required></textarea><br>
-                    <!-- Proteção contra spam, oculta para usuários -->
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://seusite.com/obrigado.html">
-                    <input type="submit" value="ENVIAR" class="enviar">
-                </form>
-            </div>
+            <!-- Formulário enviado direto para o email via FormSubmit -->
+            <form action="https://formsubmit.co/mariaresende1302@gmail.com" method="POST" autocomplete="on">
+                <input type="text" name="Nome" required placeholder="Nome:" class="input"><br>
+                <input type="email" name="Email" required placeholder="E-mail:" class="input"><br>
+                <input type="tel" name="Telefone" placeholder="Telefone (opcional):" class="input">
+                <input list="opcoes" name="Assunto" class="input" placeholder="Escolha sua opção para eu te ajudar">
+                <datalist id="opcoes">
+                    <option value="Ansiedade"></option>
+                    <option value="Depressão"></option>
+                    <option value="Estresse"></option>
+                    <option value="Problemas familiares"></option>
+                    <option value="Autoconhecimento"></option>
+                </datalist><br>
+                <textarea name="Mensagem" id="msg" placeholder="Sua mensagem:" class="textarea" required></textarea><br>
+                <!-- Proteção contra spam, oculta para usuários -->
+                <input type="hidden" name="_captcha" value="false">
+                <!-- Se tiver uma página de obrigado use abaixo, senão remova esta linha -->
+                <!-- <input type="hidden" name="_next" value="https://SEU-SITE.com/obrigado.html"> -->
+                <input type="submit" value="ENVIAR" class="enviar">
+            </form>
+        </div>
         </section>
 
         <footer class="rodape">

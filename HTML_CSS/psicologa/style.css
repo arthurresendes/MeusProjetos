@@ -352,6 +352,12 @@ nav {
     color: #b34d7e;
 }
 
+input:invalid, textarea:invalid {
+    border: 2px solid #ff5a5a;
+}
+input:invalid:focus, textarea:invalid:focus {
+    outline: 2px solid #ff5a5a;
+}
 /* ----------------- RESPONSIVE DESIGN ---------------------- */
 @media (max-width: 900px) {
     .home {
