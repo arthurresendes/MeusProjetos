@@ -264,3 +264,75 @@ span {
     text-align: center;
     font-style: italic;
 }
+
+/* Adicione ao final do arquivo: */
+@media (max-width: 1080px) {
+    .titulo {
+        font-size: 2.2rem;
+        padding: 10px;
+    }
+    nav ul {
+        font-size: 2.6rem;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .conteudo1, .conteudo2, .display {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .conteudo1 img, .img3 {
+        width: 70%;
+        height: auto;
+        margin: 0 auto 20px auto;
+    }
+    .conteudo1 .p, .conteudo3 {
+        padding-left: 0;
+        font-size: 1.1rem;
+    }
+    .antigoTestamento, .novoTestamento {
+        margin: 10px 0;
+    }
+}
+@media (max-width: 700px) {
+    header {
+        height: 350px;
+        background-size: cover;
+    }
+    .titulo {
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+    nav ul {
+        font-size: 1.2rem;
+        padding: 8px;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .conteudo1 img, .img3 {
+        width: 95%;
+        height: auto;
+    }
+    .img2 img {
+        width: 100%;
+        max-width: 90vw;
+        height: auto;
+    }
+    .button {
+        width: 90%;
+        font-size: 1rem;
+        padding: 6px;
+    }
+    .titulo2, .h2livros, .nomeAutores {
+        font-size: 1.3rem;
+        padding: 5px;
+    }
+    .livros {
+        font-size: 1rem;
+        padding: 10px 0;
+    }
+    .conteudo3 {
+        padding-left: 0;
+        margin: 5px;
+        font-size: 1rem;
+    }
+}
