@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 
+//Uma estrtura que guarda as informações de cadastro de pessoas
 struct cadastrosP
 {
     char nomeP[200];
@@ -11,6 +12,8 @@ struct cadastrosP
     int telefone;
 } p;
 
+
+//Uma estrtura que guarda as informações de cadastro de medicos
 struct cadastrosM
 {
     char nomeM[10][30];
@@ -18,6 +21,7 @@ struct cadastrosM
     char especialidade[10][50];
 } M;
 
+//Cadastro da pessoa
 void pessoa()
 {
     printf("Cadastre você na clinica control\n");
@@ -42,12 +46,14 @@ void pessoa()
     getchar();
 }
 
+//Mostrar informações da pessoa
 void mostrar()
 {
     printf("\nCadastro concluido!!\n");
     printf("Suas informacoes:\n Nome: %s\n Idade: %d\n CPF: %s\n Convenio: %s\n Telefone: %d\n", p.nomeP, p.idade, p.cpf, p.convenio, p.telefone);
 }
 
+//Menu inicial
 void menu()
 {
     printf("============== Menu =============\n");
@@ -62,6 +68,7 @@ void menu()
 
 int main()
 {
+    //Criacao de dois inteiros , um como opcao para que o usuario decida oq fzr e outra para listagem que seria qual medico ira escolher e depois mostrar(comeca com -1 pois vetor comeca do 0)
     int opcao;
     int listagem = -1; // variável para armazenar o médico selecionado (agenda)
 
@@ -135,12 +142,13 @@ int main()
             printf("Qual medico quer passar (numero da listagem): ");
             scanf("%d", &listagem);
             getchar();
-
+            //Se a listagem for menor que 1 ou maior que 10 , mostra numero invalido
             if (listagem < 1 || listagem > 10)
             {
                 printf("Número inválido! Por favor, escolha um número entre 1 e 10.\n");
                 listagem = -1; // resetar seleção inválida
             }
+            //Se nao mostra a consulta que foi agendada de acordo com sua escolha
             else
             {
                 printf("Consulta agendada com:\n");
@@ -151,10 +159,12 @@ int main()
             menu();
             break;
         case 4:
+            //Se a consulta permanecer como -1 diz que nao tem consulta
             if (listagem == -1)
             {
                 printf("Nenhuma consulta agendada ainda.\n");
             }
+            //Se nao criamos um inteiro idx que vai ser igual a listagem - 1 e depois mostra os profisisonais
             else
             {
                 int idx = listagem - 1;
