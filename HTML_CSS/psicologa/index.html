@@ -172,7 +172,6 @@
         <hr>
     </div>
     <div class="forms">
-        <!-- Formulário enviado direto para o email via Formspree -->
         <form action="https://formspree.io/f/xyzjogrb" method="POST" autocomplete="on">
             <input type="text" name="Nome" required placeholder="Nome:" class="input"><br>
             <input type="email" name="Email" required placeholder="E-mail:" class="input"><br>
@@ -186,10 +185,7 @@
                 <option value="Autoconhecimento"></option>
             </datalist><br>
             <textarea name="Mensagem" id="msg" placeholder="Sua mensagem:" class="textarea" required></textarea><br>
-            <!-- Se quiser desabilitar o captcha do Formspree, use este campo -->
             <input type="hidden" name="_captcha" value="false">
-            <!-- Se quiser redirecionar após o envio, descomente a linha abaixo e ajuste o link -->
-            <!-- <input type="hidden" name="_next" value="https://SEU-SITE.com/obrigado.html"> -->
             <input type="submit" value="ENVIAR" class="enviar">
         </form>
     </div>
