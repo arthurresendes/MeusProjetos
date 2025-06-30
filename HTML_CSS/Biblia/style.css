@@ -107,8 +107,8 @@ span {
 }
 
 .conteudo1 img:hover {
-    width: 32%;
-    height: 32%;
+    width: 31%;
+    height: 31%;
     transition-duration: .5s;
 }
 
