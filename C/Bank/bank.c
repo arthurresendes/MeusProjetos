@@ -192,7 +192,19 @@ void depositar(Conta conta , float valor){
 void transferir(Conta conta_origem, Conta conta_destino , float valor){
     if(valor > 0  && conta_origem.saldoTotal >= valor){
         for(int co = 0;co < contador_contas; co++){
-            
+            if(contas[co].numero == conta_origem.numero){
+                for(int cd = 0 ; cd < contador_contas; cd++ ){
+                    if(contas[cd].numero == conta_destino.numero){
+                        if(contas[co].saldo >= valor){
+                            contas[co].saldo = contas[co].saldo - valor;
+                            contas[cd].saldo = contas[cd].saldo + valor;
+                            contas[co].saldoTotal = atualizaSaldoTotal(contas[co]);
+                            contas[cd].saldoTotal = atualizaSaldoTotal(contas[cd]);
+                            printf("Transferencia realizada com sucesso!\n");
+                        }
+                    }
+                }
+            }
         }
 
     }else{
