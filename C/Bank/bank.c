@@ -112,6 +112,20 @@ void infoConta(Conta conta){
 }
 
 void criarConta(){
+    Cliente cliente;
+
+    char dia[3];
+    char mes[3];
+    char ano[5];
+    char data_cadastro[20];
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+
+    if(tm.tm_mday < 10){
+        sprintf(dia , "0%d" , tm.tm_mday);
+    }else{
+        sprintf(dia , "%d" , tm.tm_mday);
+    }
 
 }
 
