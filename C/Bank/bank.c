@@ -158,9 +158,20 @@ void criarConta(){
 
     contador_clientes++;
 
-    
+    contas[contador_contas].numero = contador_contas + 1;
+    contas[contador_contas].cliente = cliente;
+    contas[contador_contas].saldo = 0.0;
+    contas[contador_contas].limite = 0.0;
+    contas[contador_contas].saldoTotal = atualizaSaldoTotal(contas[contador_contas]);
 
-
+    printf("Conta criada com sucesso!\n");
+    printf("\n");
+    printf("Dados da conta criada: \n");
+    printf("\n");
+    infoConta(contas[contador_contas]);
+    contador_contas++;
+    esperar(4);
+    menu();
 }
 
 void efetuarSaque(){
