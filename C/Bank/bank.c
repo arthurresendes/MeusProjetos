@@ -127,6 +127,40 @@ void criarConta(){
         sprintf(dia , "%d" , tm.tm_mday);
     }
 
+    if(tm.tm_mon + 1 < 10){
+        sprintf(mes , "0%d" , tm.tm_mon + 1);
+    }else{
+        sprintf(mes , "%d" , tm.tm_mon + 1);
+    }
+
+    sprintf(ano , "%d" , tm.tm_year + 1900);
+
+    strcpy(data_cadastro , "");
+    strcat(data_cadastro , dia);
+    strcat(data_cadastro , "-");
+    strcat(data_cadastro , mes);
+    strcat(data_cadastro , "-");
+    strcat(data_cadastro , ano);
+    strcat(data_cadastro , "\0");
+    strcpy(cliente.dataCadastro, data_cadastro);
+
+    printf("Informe os dados do cliente.\n");
+    cliente.codigo += contador_clientes;
+
+    printf("Nome: \n");
+    fgets(cliente.nome, 50 , stdin);
+    printf("E-mail: \n");
+    fgets(cliente.email, 50 , stdin);
+    printf("CPF: \n");
+    fgets(cliente.cpf, 20 , stdin);
+    printf("Data de nascimento: \n");
+    fgets(cliente.dataNascimento, 20 , stdin);
+
+    contador_clientes++;
+
+    
+
+
 }
 
 void efetuarSaque(){
