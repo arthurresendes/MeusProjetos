@@ -201,6 +201,14 @@ void transferir(Conta conta_origem, Conta conta_destino , float valor){
                             contas[co].saldoTotal = atualizaSaldoTotal(contas[co]);
                             contas[cd].saldoTotal = atualizaSaldoTotal(contas[cd]);
                             printf("Transferencia realizada com sucesso!\n");
+                        }else{
+                            float restante = contas[co].saldo -valor;
+                            contas[co].limite = contas[co].limite + restante;
+                            contas[co].saldo == 0.0;
+                            contas[cd].saldo = contas[cd].saldo + valor;
+                            contas[co].saldoTotal = atualizaSaldoTotal(contas[co]);
+                            contas[cd].saldoTotal = atualizaSaldoTotal(contas[cd]);
+                            printf("Transferencia realizada com sucesso!\n");
                         }
                     }
                 }
