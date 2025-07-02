@@ -175,10 +175,51 @@ void criarConta(){
 }
 
 void efetuarSaque(){
+    if(contador_contas > 0){
+        int numero;
+        printf("Digite o numero da contado: \n");
+        scanf("%d" , &numero);
+        Conta conta = buscarContaPorNumero(numero);
+        if(conta.numero == numero){
+            float valor;
+            printf("Informe o valor do saque: ");
+            scanf("%f" ,&valor);
 
+            sacar(conta, valor);
+        }else{
+            printf("Nao foi encontrado uma conta com o numero %d" , numero);
+        }
+
+    }else{
+        printf("Ainda não existem contas para saque.\n");
+    }
+
+    esperar(2);
+    menu();
 }
 
 void efetuarDeposito(){
+    if(contador_contas > 0){
+        int numero;
+        printf("Digite o numero da contado: \n");
+        scanf("%d" , &numero);
+        Conta conta = buscarContaPorNumero(numero);
+        if(conta.numero == numero){
+            float valor;
+            printf("Informe o valor do deposito: ");
+            scanf("%f" ,&valor);
+
+            depositar(conta, valor);
+        }else{
+            printf("Nao foi encontrado uma conta com o numero %d" , numero);
+        }
+
+    }else{
+        printf("Ainda não existem contas para deposito.\n");
+    }
+
+    esperar(2);
+    menu();
 
 }
 
