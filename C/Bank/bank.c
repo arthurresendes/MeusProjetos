@@ -1,8 +1,10 @@
+//Bibliotecas para uso
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
 
+//Constante esperar que funciona em diversos SO
 #ifdef _WIN32
 #include <windows.h>
 #define esperar(segundos) Sleep((segundos) * 1000)
@@ -11,6 +13,7 @@
 #define esperar(segundos) sleep(segundos)
 #endif
 
+//Estrutura para cadastro de cliente
 typedef struct {
     int codigo;
     char nome[50];
@@ -20,9 +23,10 @@ typedef struct {
     char dataCadastro[20];
 } Cliente;
 
+//Estrutura para a conta do cliente
 typedef struct {
     int numero;
-    Cliente cliente;
+    Cliente cliente; //Puxa informações do cliente
     float saldo;
     float limite;
     float saldoTotal;
