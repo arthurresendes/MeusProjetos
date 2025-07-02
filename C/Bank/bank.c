@@ -156,21 +156,48 @@ void sacar(Conta conta , float valor){
                     contas[i].saldo = contas[i].saldo - valor;
                     contas[i].saldoTotal = atualizaSaldoTotal(contas[i]);
                     printf("Saque efetuado com sucesso\n");
+                }else{
+                    float restante = contas[i].saldo - valor;
+                    contas[i].limite = contas[i].limite - restante;
+                    contas[i].saldo = 0.0;
+                    contas[i].saldoTotal = atualizaSaldoTotal(contas[i]);
+                    printf("Saque efetuado com sucesso\n");
                 }
             }
         }
-
     }else{
         printf("Saque indisponivel. Verifique o seu saldo!\n");
-        esperar(2);
-        menu();
     }
+    esperar(2);
+    menu();
 }
 
 void depositar(Conta conta , float valor){
+    if(valor > 0){
+        for(int i =0 ; i < contador_contas; i++){
+            if(contas[i].numero == conta.numero){
+                contas[i].saldo = contas[i].saldo + valor;
+                contas[i].saldoTotal = atualizaSaldoTotal(contas[i]);
+                printf("Deposito efetuado com sucesso\n");
+            }
+        }
+    }else{
+        printf("Deposito indisponivel. Verifique o seu saldo!\n");
+    }
+    esperar(2);
+    menu();
 
 }
 
 void transferir(Conta conta_origem, Conta conta_destino , float valor){
+    if(valor > 0  && conta_origem.saldoTotal >= valor){
+        for(int co = 0;co < contador_contas; co++){
+            
+        }
 
+    }else{
+        printf("Transferencia indisponivel. Verifique o seu saldo!\n");
+    }
+    esperar(2);
+    menu();
 }
