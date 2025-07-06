@@ -89,7 +89,7 @@ span {
     color: #AB3030;
 }
 
-.conteudo1 {
+.conteudo1 , .conteudo2 {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -97,10 +97,16 @@ span {
     padding: 10px;
 }
 
-.conteudo1 img {
+
+.conteudo2 p{
+    text-align: normal;
+    text-indent: 10px;
+    padding: 10px;
+}
+
+.conteudo1 img , .conteudo2 img {
     width: 30%;
     height: 30%;
-
     border: 2px solid transparent;
     border-radius: 5px;
     box-shadow: 2px 2px 5px #ab303054;
