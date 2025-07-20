@@ -322,8 +322,3 @@ img, iframe {
     clear: both;
 }
 
-.total{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
