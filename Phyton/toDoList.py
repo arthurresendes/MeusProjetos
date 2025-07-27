@@ -18,7 +18,7 @@ def concluirTarefa():
         for indice, tarefa in enumerate(lista):
             print(f"{indice + 1} - {tarefa}")
         marcarConcluida = int(input("Digite o número da tarefa que você concluiu: ")) - 1
-
+        # Se marcarConcluida for maior que 0 e menor que o tamanho da lista de tarefas remove a concluida da lista de tarefa e adiciona na lista tarefasConcluida
         if 0 <= marcarConcluida < len(lista):
             tarefa = lista.pop(marcarConcluida)
             tarefaConcluida.append(tarefa)
@@ -29,12 +29,10 @@ def concluirTarefa():
 def mostrarConcluidas():
     if tarefaConcluida:
         print("Tarefas concluídas:")
-        for t in tarefaConcluida:
-            print(f"- {t}")
+        for tarefa in tarefaConcluida:
+            print(f"- {tarefa}")
     else:
         print("Nenhuma tarefa concluída ainda.")
-
-
 
 def removeTarefa():
     valorRemover = int(input("Digite o número da tarefa que quer remover: ")) - 1
