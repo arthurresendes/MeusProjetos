@@ -1,88 +1,170 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: #fff;
 }
 
 .header-bg {
     position: relative;
-    background: url('imagens/header.png') no-repeat center center;
+    height: 410px;
+    background:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 70%, rgba(255, 255, 255, 1) 100%),
+        url('imagens/header.png') no-repeat center center;
     background-size: cover;
-    height: 350px;
-    /* Altura fixa do header */
-    display: flex;
-    align-items: stretch;
-    flex-direction: row;
+    overflow: hidden;
 }
 
-.top-navbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
+.navbar {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background: rgba(188, 188, 188, 0.268);
-    /* Leve transparência sobre a imagem */
-    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 18px 40px 0 30px;
+    position: relative;
     z-index: 2;
 }
 
-.nav-links {
-    list-style: none;
+.logo {
+    width: 50px;
+    height: auto;
+    margin-top: 2px;
+}
+
+.nav-menu {
     display: flex;
-    gap: 30px;
-    margin: 0 40px 0 0;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
     padding: 0;
+    align-items: center;
 }
 
-.nav-links li a {
+.nav-menu li a {
+    color: #fff;
     text-decoration: none;
-    color: #222;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    padding: 8px 14px;
+    transition: background 0.15s, color 0.15s;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.nav-menu li a:hover {
+    background: rgba(255, 255, 255, 0.13);
+}
+
+.btn-contato-top {
+    background: #d5b179;
+    color: #fff !important;
     font-weight: bold;
-    font-size: 1.1rem;
-    transition: color 0.2s;
+    border-radius: 6px;
+    box-shadow: 0 2px #b39560;
+    padding: 8px 18px;
+    border: none;
+    margin-left: 8px;
+    transition: background 0.15s, color 0.15s;
 }
 
-.nav-links li a:hover {
-    color: #0077ff;
+.btn-contato-top:hover {
+    background: #b39560;
+    color: #fff;
 }
 
-.side-nav {
+.header-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.header-text {
+    margin-left: 50px;
+    color: #fff;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 30px;
-    width: 300px;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.129);
-    /* leve transparência para destacar o menu */
-    box-sizing: border-box;
-    margin-top: 20px;
-    /* Deixa espaço para a navbar no topo */
+    justify-content: center;
+    min-width: 290px;
+    max-width: 420px;
+    background: rgba(0, 0, 0, 0.132);
+    padding: 32px 32px 28px 32px;
+    border-radius: 10px;
+    box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.11);
 }
 
-.logo {
-    width: 120px;
-    margin-bottom: 20px;
+.header-text h2,
+.header-text h3 {
+    margin: 0 0 10px 0;
+    font-weight: 400;
+    line-height: 1.2;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
-.nav-text {
-    flex: 1;
-    overflow: hidden;
-    /* Esconde o que passar da altura */
+.header-text h2 {
+    font-size: 1.25rem;
 }
 
-.header-bg,
-.side-nav {
-    min-height: 0;
-    min-width: 0;
+.header-text h3 {
+    font-size: 1.2rem;
 }
 
-main {
-    padding: 40px 20px;
-    background: #fff;
-    min-height: 400px;
+.btn-whatsapp {
+    text-align: center;
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 25px;
+    background: #d5b179;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1rem;
+    box-shadow: 0 2px #b39560;
+    border: none;
+    transition: background 0.15s, color 0.15s;
+}
+
+.btn-whatsapp:hover {
+    background: #b39560;
+    color: #fff;
+}
+
+@media (max-width: 900px) {
+    .header-content {
+        justify-content: center;
+    }
+
+    .header-text {
+        margin: 0 20px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 18px 12px 0 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-bg {
+        height: 370px;
+    }
+
+    .header-text {
+        max-width: 90vw;
+        padding: 20px 8px 20px 8px;
+    }
+
+    .navbar {
+        padding: 12px 4vw 0 4vw;
+    }
+
+    .nav-menu {
+        gap: 12px;
+    }
 }
