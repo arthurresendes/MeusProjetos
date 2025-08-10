@@ -6,7 +6,7 @@ body {
 
 .header-bg {
     position: relative;
-    height: 410px;
+    height: 810px;
     background:
         linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 70%, rgba(255, 255, 255, 1) 100%),
         url('imagens/header.png') no-repeat center center;
@@ -24,7 +24,7 @@ body {
 }
 
 .logo {
-    width: 50px;
+    width: 80px;
     height: auto;
     margin-top: 2px;
 }
@@ -54,8 +54,9 @@ body {
 
 .nav-menu li a:hover {
     background: rgba(202, 202, 202, 0.13);
-    color: rgba(26, 26, 26, 0.633);
+    color: rgb(88, 55, 20);
     font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.153);
 }
 
 .btn-contato-top {
@@ -160,10 +161,17 @@ body {
     margin-left: 5px;
 }
 
-.separacao-imagem{
-    border: solid black;
+.separacao-imagem img{
+    width: 90%;
+    border: solid rgb(86, 60, 3);
     border-radius: 80%;
     margin-left: 20px;
+    margin: 0px 10px;
+}
+
+.separacao-imagem{
+    text-align: center;
+    padding: 0;
 }
 
 @media (max-width: 900px) {
