@@ -209,3 +209,28 @@ body {
         gap: 12px;
     }
 }
+
+.carousel-caption {
+    position: static;
+    background: #fff;
+    color: #222;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    margin-top: -8px;
+}
+
+.carousel-item img {
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.carousel-item h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+.carousel-item p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 0;
+}
