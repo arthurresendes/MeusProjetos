@@ -1,6 +1,5 @@
 import random
 
-
 '''
 Na função menu temos uma leve de opções dos 4 metodos de operação matematico de teste : +,-,*,/
 
