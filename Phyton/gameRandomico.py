@@ -103,4 +103,5 @@ def main():
             elif opcao == 5:
                 print("Saindo...")
 
-main()
+if __name__ == "__main__":
+    main()

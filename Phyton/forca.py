@@ -9,6 +9,7 @@ def menu():
     time.sleep(2)
 
 def jogo():
+    menu()
     lista = ['jabuticaba', 'abacaxi', 'banana','limao','maça', 'laranja']
     escolha = choice(lista)  
     letras_user = []         
@@ -46,5 +47,5 @@ def jogo():
     else:
         print(f"Você perdeu! A palavra era {escolha}.")
 
-menu()
-jogo()
+if __name__ == "__main__":
+    jogo()
