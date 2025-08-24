@@ -1,6 +1,6 @@
+import forca
 import gameNumbers
 import gameRandomico
-import forca
 import pedraPapelTesoura
 
 
